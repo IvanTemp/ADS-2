@@ -28,9 +28,9 @@ int cbinsearch(int* arr, int size, int value, int lft) {
 
 int countPairs1(int* arr, int len, int value) {
     unsigned int res = 0;
-    for (int i = 0; i < len - 1; i++){
-        for (int j = i+1; j < len; j++){
-            if (arr[i] + arr[j] == value){
+    for (int i = 0; i < len - 1; i++) {
+        for (int j = i+1; j < len; j++) {
+            if (arr[i] + arr[j] == value) {
                 res++;
             }
         }
@@ -40,12 +40,12 @@ int countPairs1(int* arr, int len, int value) {
 
 int countPairs2(int* arr, int len, int value) {
     unsigned int res = 0, left = 0, right = len - 1;
-    while (arr[right] > value){
+    while (arr[right] > value) {
         right--;
     }
-    while (right != 0){
+    while (right != 0) {
         while (left < right){
-            if (arr[right] + arr[left] == value){
+            if (arr[right] + arr[left] == value) {
                 res++;
             }
             left++;
@@ -58,10 +58,10 @@ int countPairs2(int* arr, int len, int value) {
 
 int countPairs3(int* arr, int len, int value) {
     unsigned int res = 0, left = 0, right = len - 1;
-    while (arr[right] > value){
+    while (arr[right] > value) {
         right--;
     }
-    while (left != right){
+    while (left != right) {
         res+=cbinsearch(arr, len, value - arr[left], left) != 0;
         left++;
     }
